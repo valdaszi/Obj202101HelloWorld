@@ -1,3 +1,5 @@
+package lt.bit.obj.p05.intro;
+
 import java.time.LocalDate;
 
 public class P05ZmogusIntro {

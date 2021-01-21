@@ -1,3 +1,5 @@
+package lt.bit.obj.intro;
+
 import java.util.Random;
 
 public class Switch {

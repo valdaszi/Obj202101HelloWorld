@@ -1,3 +1,5 @@
+package lt.bit.obj.intro;
+
 public class Trikampiai {
 
     public static void main(String[] args) {

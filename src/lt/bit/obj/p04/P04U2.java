@@ -1,3 +1,5 @@
+package lt.bit.obj.p04;
+
 public class P04U2 {
 
     public static void main(String[] args) {
