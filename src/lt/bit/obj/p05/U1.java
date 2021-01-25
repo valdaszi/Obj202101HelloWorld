@@ -6,6 +6,10 @@ public class U1 {
 
     public static void main(String[] args) {
 
+        System.out.println( "JAVA_HOME = " + System.getenv("JAVA_HOME"));
+        System.out.println( "com.alibaba = " + System.getenv("com.alibaba"));
+        System.out.println( "com.alibaba = " + System.getProperty("com.alibaba"));
+
         System.out.println( U1.class.getName() );
 
         Mokinys[] mokiniai = readFromDB();
