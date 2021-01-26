@@ -44,29 +44,22 @@ public class Main {
         IBAN iban = new IBAN();
 
         try {
-            Reader reader = new FileReader(filename);
+            // 1. atidaryti ivedimo faila skaitymui
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
 
+            // 2. atidaryti isvedimo faila rasymui
             int dot = filename.lastIndexOf('.');
             String name = dot == -1 ? filename : filename.substring(0, dot);
             String filenameOut = name + ".out";
-            Writer writer = new FileWriter(filenameOut);
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filenameOut));
 
-            int c;
-            StringBuilder sb = new StringBuilder();
-            while ((c = reader.read()) != -1) {
-                if (c == '\n') {
-                    // System.out.println("Eilutes pabaiga");
-                    boolean isValid = iban.checkIBAN(sb.toString());
-                    // writer.write(sb.toString() + ';' + isValid + '\n');
-                    sb.append(';');
-                    sb.append(isValid);
-                    sb.append('\n');
-                    writer.write(sb.toString());
-
-                    sb = new StringBuilder();
-                } else {
-                    sb.append((char)c);
-                }
+            // 3. kol ne ivedimo failo pabaiga - skaityti viena eilute is failo
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // patikrinti koks iban
+                boolean isValid = iban.checkIBAN(line);
+                // irasyti resultata i isevdimo faila
+                writer.write(line + ';' + isValid + '\n');
             }
 
             reader.close();
@@ -75,14 +68,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // 1. atidaryti ivedimo faila skaitymui
-        // 2. atidaryti isvedimo faila rasymui
-        // 3. kol ne ivedimo failo pabaiga
-        //      3.1. skaityti viena eilute is failo
-        //      3.2. patikrinti koks iban
-        //      3.3. irasyti resultata i isevdimo faila
-        // Pabaiga
     }
 
 }
