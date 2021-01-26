@@ -46,7 +46,9 @@ public class Main {
         try {
             Reader reader = new FileReader(filename);
 
-            String filenameOut = filename + ".out";
+            int dot = filename.lastIndexOf('.');
+            String name = dot == -1 ? filename : filename.substring(0, dot);
+            String filenameOut = name + ".out";
             Writer writer = new FileWriter(filenameOut);
 
             int c;
