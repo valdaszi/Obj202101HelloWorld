@@ -38,6 +38,12 @@ public class IBAN {
         return remainder.equals(BigInteger.ONE);
     }
 
+    /**
+     * Pavercia IBAN saskaita i skaitini formata.
+     * T.y. visas raides keicia atitinkamais skaiciais
+     * @param iban banko saskaitos numeris
+     * @return IBAN saskaita tik su skaiciais
+     */
     private String decode(String iban) {
         String res = "";
         for (int i = 0; i < iban.length(); i++) {
