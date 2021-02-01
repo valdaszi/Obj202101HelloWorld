@@ -12,13 +12,14 @@ import java.awt.*;
 public class Uzdavinys {
 
     public static void main(String[] args) {
+        int color = 100;
         IContainer container = new Container();
-        container.add(new A());
-        container.add(new A());
-        container.add(new B());
-        container.add(new B());
-        container.add(new A());
-        container.add(new A());
+        container.add(new A(color++));
+        container.add(new A(color++));
+        container.add(new B(color++));
+        container.add(new B(color++));
+        container.add(new A(color++));
+        container.add(new A(color++));
         System.out.println("size = " + container.size());
         for (int i = 0; i < container.size(); i++) {
             Color c = container.get(i);
@@ -30,20 +31,23 @@ public class Uzdavinys {
 //TODO...
 class Container implements IContainer {
     // ...
+    private Color[] colors = new Color[5];
+    //TODO ...
 
     @Override
     public void add(Color c) {
-
+        //TODO ???
     }
 
     @Override
     public int size() {
+        //TODO ???
         return 0;
     }
 
     @Override
     public Color get(int index) {
-        return null;
+        return colors[index];
     }
 }
 
@@ -59,15 +63,29 @@ interface Color {
 }
 
 class A implements Color {
+
+    private int color;
+
+    public A(int color) {
+        this.color = color;
+    }
+
     @Override
     public int getColor() {
-        return 0;
+        return color;
     }
 }
 
 class B implements Color {
+
+    private int color;
+
+    public B(int color) {
+        this.color = color;
+    }
+
     @Override
     public int getColor() {
-        return 0;
+        return color ;
     }
 }
