@@ -2,6 +2,7 @@ package lt.bit.obj.p10;
 
 import java.util.Currency;
 import java.util.Date;
+import java.util.Random;
 
 public class Main {
 
@@ -22,7 +23,11 @@ public class Main {
 
     static IBankExchangeRate getBank() {
         //TODO??
-        return new BankLT(); // new BankECB();
+        if (Math.random() < 0.5) {
+            return new BankLT(); // new BankECB();
+        } else {
+            return new BankECB();
+        }
     }
 }
 
