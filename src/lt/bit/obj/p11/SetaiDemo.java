@@ -46,6 +46,9 @@ public class SetaiDemo {
         }
 
         // Set'ai su mano klase Adresas
+
+        // HashSet
+
         Set<Adresas> adresas1 = new HashSet<>();
         adresas1.add(new Adresas("Babtai", "Lapu aleja 12"));
         adresas1.add(new Adresas("Vilnius", "Gedimino 1"));
@@ -61,6 +64,16 @@ public class SetaiDemo {
         Adresas a2 = new Adresas("Babtai", "Lapu aleja 12");
         System.out.println("a1 == a2 ? " + (a1 == a2));
         System.out.println("a1.equals(a2) ? " + a1.equals(a2));
+
+        // TreeSet
+
+        Set<Adresas> adresas2 = new TreeSet<>();
+        adresas2.add(new Adresas("Babtai", "Lapu aleja 12"));
+        adresas2.add(new Adresas("Vilnius", "Gedimino 1"));
+        adresas2.add(new Adresas("Babtai", "Lapu aleja 12"));
+        adresas2.add(new Adresas("Šiauliai", "Lapu aleja 12"));
+
+        System.out.println("adresas2=" + adresas2.size() + " " + adresas2);
 
     }
 
@@ -79,7 +92,7 @@ public class SetaiDemo {
 
 }
 
-class Adresas extends Object {
+class Adresas implements Comparable<Adresas> {
     private String miestas;
     private String gatve;
 
@@ -111,7 +124,7 @@ class Adresas extends Object {
 
 //    @Override
 //    public int hashCode() {
-//        return Objects.hash(miestas, gatve);
+//        return 123;
 //    }
 //
 //    @Override
@@ -135,5 +148,16 @@ class Adresas extends Object {
     @Override
     public int hashCode() {
         return Objects.hash(miestas, gatve);
+    }
+
+    // if (this < o) return -x
+    // if (this == o) return 0
+    // if (this > o) return +x
+    @Override
+    public int compareTo(Adresas o) { // this ? o
+//        if (this.miestas.equals(o.miestas) && this.gatve.equals(o.gatve)) return 0;
+        int c = this.miestas.compareTo(o.miestas);
+        if (c != 0) return c;
+        return this.gatve.compareTo(o.gatve);
     }
 }
