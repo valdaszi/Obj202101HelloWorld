@@ -15,7 +15,7 @@ public class Chess {
             s *= 2; // s = s * 2
             l *= 2;
             d *= 2;
-            big = big.multiply(BigInteger.TWO);
+            big = big.multiply(BigInteger.valueOf(2));
         }
 
         // 000..00001 = 1
