@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ThreadAndURLDemo {
 
-    private static final String API_KEY = "De8M_Q2UjEQvrMU88Y0u16pQpbwZIje_zgdEvOd_UOs";
+    private static final String API_KEY = "...";
 
 
     public static void main(String[] args) {
