@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class Uzdavinys {
 
-    private static final String API_KEY = "De8M_Q2UjEQvrMU88Y0u16pQpbwZIje_zgdEvOd_UOs";
+    private static final String API_KEY = "...";
 
     public static void main(String[] args) throws UnsupportedEncodingException, MalformedURLException {
         /*
