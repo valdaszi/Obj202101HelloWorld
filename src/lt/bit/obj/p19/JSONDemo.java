@@ -1,6 +1,7 @@
 package lt.bit.obj.p19;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -35,8 +36,9 @@ public class JSONDemo {
         System.out.println(json);
 
         // verciame atgal i List'a
-        //companies = objectMapper.readValue(json, List.class); // negerai
-        //System.out.println(companies.get(0).getClass().getName());
+        // Company[] arr = objectMapper.readValue(json, Company[].class);
+        companies = objectMapper.readValue(json, new TypeReference<List<Company>>(){});
+        System.out.println(companies);
 
         // tarkime JSON turime viena objekta, o ne List'a
         json = objectMapper.writeValueAsString(companies.get(0));
