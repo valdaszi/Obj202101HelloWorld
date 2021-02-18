@@ -3,6 +3,7 @@ package lt.bit.obj.p20;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Future;
 
 public class ThreadDemo2 {
 
@@ -33,6 +34,10 @@ public class ThreadDemo2 {
         long end = System.currentTimeMillis() - start;
         System.out.println("listo dydis: " + listas.size());
         System.out.println("c=" + c + " in " + end + "ms");
+
+
+//        Future<Double> fd1 = null;
+//        fd1.get()
     }
 
     static List<Integer> listas = Collections.synchronizedList(new ArrayList<>());
